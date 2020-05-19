@@ -125,8 +125,17 @@ def check_argentina(update, context):
 
         OK_ARG = update.message.text
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari", parse_mode=telegram.ParseMode.MARKDOWN)
-
+        
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
+        else:
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari", parse_mode=telegram.ParseMode.MARKDOWN)
+        
         return 0
 
     else:
@@ -422,7 +431,7 @@ def main():
     dispatcher.add_handler(handler_peru)
     dispatcher.add_handler(CommandHandler('destinacions', destinacions))
     dispatcher.add_handler(CommandHandler('itinerari', itinerari))
-    dispatcher.add_handler(CommandHandler('ajuda', ajuda)) 
+    dispatcher.add_handler(CommandHandler('ajuda', ajuda))
 
 
     #======================
