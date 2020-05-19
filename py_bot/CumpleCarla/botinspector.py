@@ -17,13 +17,13 @@ class Item(object):
         self.valor = valor
 
 @app.route("/")
-def espiar():
+def index():
     items = []
     with open("app.log", 'r') as file:  
         for line in file:
             linia = re.split(' - ', line)
             items.append(Item(linia[3]))
-            
+          
     table = ItemTable(items)
     return render_template("index.html", table = table)
 
