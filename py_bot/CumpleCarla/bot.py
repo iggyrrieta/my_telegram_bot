@@ -75,9 +75,7 @@ def check_inici(update, context):
        (update.message.text.lower() == 'yeah') or 
        (update.message.text.lower() == 'vamos') or  
        (update.message.text.lower() == 'vale') or 
-       (update.message.text.lower() == 'ok') or 
-       (update.message.text.lower() == 'goes') or 
-       (update.message.text.lower() == 'groes')):
+       (update.message.text.lower() == 'ok')):
 
        context.bot.send_message(chat_id=update.effective_chat.id, text="Genial!")  
        context.bot.send_message(chat_id=update.effective_chat.id, text="A continuació tens el llistat de les destinacions que offerim:")
@@ -90,7 +88,7 @@ def check_inici(update, context):
 
        return 0
     
-    if ((update.message.text.lower() == 'goes') or 
+    elif ((update.message.text.lower() == 'goes') or 
        (update.message.text.lower() == 'groes')):
 
        context.bot.send_message(chat_id=update.effective_chat.id, text="Moroes!")  
@@ -126,15 +124,15 @@ def check_argentina(update, context):
         OK_ARG = update.message.text
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
         
-        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
-            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA.lower()) and (OK_BRA==PASS_BRASIL.upper()) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU.lower()) and (OK_XIL==PASS_XILE.upper())):
             context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
             context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
             context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
             context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
             context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
         else:
-            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN)
         
         return 0
 
@@ -155,8 +153,16 @@ def check_brasil(update, context):
 
         OK_BRA = update.message.text
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari", parse_mode=telegram.ParseMode.MARKDOWN)
-
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
+        else:
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN)
+        
         return 0
 
     else:
@@ -176,8 +182,16 @@ def check_bolivia(update, context):
 
         OK_BOL = update.message.text
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari", parse_mode=telegram.ParseMode.MARKDOWN)
-
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
+        else:
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN)
+        
         return 0
 
     else:
@@ -197,8 +211,16 @@ def check_xile(update, context):
 
         OK_XIL = update.message.text
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari", parse_mode=telegram.ParseMode.MARKDOWN)
-
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
+        else:
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN)
+        
         return 0
 
     else:
@@ -218,8 +240,16 @@ def check_colombia(update, context):
 
         OK_COL = update.message.text
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari", parse_mode=telegram.ParseMode.MARKDOWN)
-
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
+        else:
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN)
+        
         return 0
 
     else:
@@ -239,8 +269,16 @@ def check_peru(update, context):
 
         OK_PER = update.message.text
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari", parse_mode=telegram.ParseMode.MARKDOWN)
-
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
+        else:
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN)
+        
         return 0
 
     else:
