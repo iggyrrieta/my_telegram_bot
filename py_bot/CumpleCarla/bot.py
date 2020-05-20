@@ -8,7 +8,7 @@ from telegram import ReplyKeyboardMarkup, ForceReply, ReplyKeyboardRemove
 # Logging
 #======================
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    filename='app.log',
+                    #filename='app.log',
                     filemode='w', 
                     datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.INFO)
@@ -313,7 +313,7 @@ def argentina(update, context):
     logger.info("[DESTINACIONS] Usuari %s esta a ARGENTINA", update.message.from_user.first_name)
 
     context.bot.send_message(chat_id=update.effective_chat.id, text="Bienvenida a la *Argentina*, boluda!", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Che, parece que se armó un quilombo en la aduana.", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Che, parece que se armó un quilombo en la aduana", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="El presidente Macri acaba de anunciar que cierra todas las fronteras a todos los pibes que no aman a la Argentina", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Para poder entrar, tenés que demostrar tu conocimiento del país, adivinando las palabras que dos agentes de la aduana pensaron para vos", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Podés comenzar la prueba aquí:", parse_mode=telegram.ParseMode.MARKDOWN)
