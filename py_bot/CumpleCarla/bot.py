@@ -20,7 +20,7 @@ logger = logging.getLogger("FlyOn Carla")
 #======================
 DESTINACIONS, INICI, AJUDA, ARG_PROVA, BOL_PROVA, BRA_PROVA, COL_PROVA, PER_PROVA, XIL_PROVA = range(9)
 
-PASS_ARGENTINA = '000'
+PASS_ARGENTINA = 'che'
 PASS_BOLIVIA = 'stop'
 PASS_BRASIL = 'VIVAOBRASIL'
 PASS_COLOMBIA = '30'
@@ -117,15 +117,15 @@ def check_argentina(update, context):
 
     global OK_ARG 
 
-    if update.message.text == PASS_ARGENTINA:
+    if update.message.text.lower() == PASS_ARGENTINA:
         #LOG
         logger.info("[CHECK ARGENTINA] Usuari %s ha ENCERTAT password ARGENTINA --> %s", update.message.from_user.first_name, update.message.text) 
 
-        OK_ARG = update.message.text
+        OK_ARG = update.message.text.lower()
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
         
-        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA.lower()) and (OK_BRA==PASS_BRASIL.upper()) \
-            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU.lower()) and (OK_XIL==PASS_XILE.upper())):
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
             context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
             context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
             context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
@@ -140,7 +140,8 @@ def check_argentina(update, context):
         #LOG
         logger.info("[CHECK ARGENTINA] Usuari %s ha FALLAT password ARGENTINA --> %s", update.message.from_user.first_name, update.message.text) 
 
-        context.bot.send_message(chat_id=update.effective_chat.id, text="MEEEEEEC!", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Argentina:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_brasil(update, context):
@@ -151,7 +152,7 @@ def check_brasil(update, context):
         #LOG
         logger.info("[CHECK BRASIL] Usuari %s ha ENCERTAT password BRASIL --> %s", update.message.from_user.first_name, update.message.text) 
 
-        OK_BRA = update.message.text
+        OK_BRA = update.message.text.upper()
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
         if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
             and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
@@ -169,7 +170,8 @@ def check_brasil(update, context):
         #LOG
         logger.info("[CHECK BRASIL] Usuari %s ha FALLAT password BRASIL --> %s", update.message.from_user.first_name, update.message.text) 
 
-        context.bot.send_message(chat_id=update.effective_chat.id, text="MEEEEEEC!", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Brasil:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_bolivia(update, context):
@@ -180,7 +182,7 @@ def check_bolivia(update, context):
         #LOG
         logger.info("[CHECK BOLIVIA] Usuari %s ha ENCERTAT password BOLIVIA --> %s", update.message.from_user.first_name, update.message.text) 
 
-        OK_BOL = update.message.text
+        OK_BOL = update.message.text.lower()
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
         if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
             and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
@@ -198,37 +200,9 @@ def check_bolivia(update, context):
         #LOG
         logger.info("[CHECK BOLIVIA] Usuari %s ha FALLAT password BOLIVIA --> %s", update.message.from_user.first_name, update.message.text) 
 
-        context.bot.send_message(chat_id=update.effective_chat.id, text="MEEEEEEC!", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Bolivia:*", parse_mode=telegram.ParseMode.MARKDOWN)
-
-def check_xile(update, context):
-
-    global OK_XIL 
-
-    if update.message.text.upper() == PASS_XILE:
-        #LOG
-        logger.info("[CHECK XILE] Usuari %s ha ENCERTAT password XILE --> %s", update.message.from_user.first_name, update.message.text) 
-
-        OK_XIL = update.message.text
-        context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
-            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
-            context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
-            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
-            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
-            context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
-            context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
-        else:
-            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN)
-        
-        return 0
-
-    else:
-        #LOG
-        logger.info("[CHECK XILE] Usuari %s ha FALLAT password XILE --> %s", update.message.from_user.first_name, update.message.text) 
-
-        context.bot.send_message(chat_id=update.effective_chat.id, text="MEEEEEEC!", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Xile:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_colombia(update, context):
 
@@ -256,7 +230,8 @@ def check_colombia(update, context):
         #LOG
         logger.info("[CHECK COLOMBIA] Usuari %s ha FALLAT password COLOMBIA --> %s", update.message.from_user.first_name, update.message.text) 
 
-        context.bot.send_message(chat_id=update.effective_chat.id, text="MEEEEEEC!", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Colombia:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_peru(update, context):
@@ -267,7 +242,7 @@ def check_peru(update, context):
         #LOG
         logger.info("[CHECK PERU] Usuari %s ha ENCERTAT password PERU --> %s", update.message.from_user.first_name, update.message.text) 
 
-        OK_PER = update.message.text
+        OK_PER = update.message.text.lower()
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
         if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
             and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
@@ -285,8 +260,39 @@ def check_peru(update, context):
         #LOG
         logger.info("[CHECK PERU] Usuari %s ha FALLAT password PERU --> %s", update.message.from_user.first_name, update.message.text) 
 
-        context.bot.send_message(chat_id=update.effective_chat.id, text="MEEEEEEC!", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Peru:*", parse_mode=telegram.ParseMode.MARKDOWN)
+
+def check_xile(update, context):
+
+    global OK_XIL 
+
+    if update.message.text.upper() == PASS_XILE:
+        #LOG
+        logger.info("[CHECK XILE] Usuari %s ha ENCERTAT password XILE --> %s", update.message.from_user.first_name, update.message.text) 
+
+        OK_XIL = update.message.text.upper()
+        context.bot.send_message(chat_id=update.effective_chat.id, text="*Correcte!*", parse_mode=telegram.ParseMode.MARKDOWN)
+        if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
+            and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
+            context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
+        else:
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN)
+        
+        return 0
+
+    else:
+        #LOG
+        logger.info("[CHECK XILE] Usuari %s ha FALLAT password XILE --> %s", update.message.from_user.first_name, update.message.text) 
+
+        context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Xile:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 
 #=================================================================
@@ -312,8 +318,13 @@ def argentina(update, context):
     #LOG
     logger.info("[DESTINACIONS] Usuari %s esta a ARGENTINA", update.message.from_user.first_name)
 
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Bienvenida a *Argentina*, boluda!", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="UNDER CONSTRUCTION", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Bienvenida a la *Argentina*, boluda!", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Che, parece que se armó un quilombo en la aduana.", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="El presidente Macri acaba de anunciar que cierra todas las fronteras a todos los pibes que no aman a la Argentina", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Para poder entrar, tenés que demostrar tu conocimiento del país, adivinando las palabras que dos agentes de la aduana pensaron para vos", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Podés comenzar la prueba aquí:", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Andáte!", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Argentina:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
     return ARG_PROVA
@@ -349,11 +360,13 @@ def colombia(update, context):
     logger.info("[DESTINACIONS] Usuari %s esta a COLOMBIA", update.message.from_user.first_name)
 
     context.bot.send_message(chat_id=update.effective_chat.id, text="Bienvenida a *Colombia*, mamita!", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Menos mal que llegaste", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Esta panda de pendejos no hacen más que cagarla", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="La policía se ha hecho con fotos que nos incriminan y pues necesitamos eliminar todas las pruebas", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Hemos conseguido acceso al archivo de la comisaría:", parse_mode=telegram.ParseMode.MARKDOWN) 
-    context.bot.send_message(chat_id=update.effective_chat.id, text="https://drive.google.com/drive/u/0/folders/1Ulsg2nZUFNL9DAH83VzD1xGv67ORbUP1", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="El nostre agent local t'ha deixat un sobre al hotel", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Conté aquest missatge:", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="**Segueix les fotos del collage en línies rectes verticals o horitzontals (no diagonals) i descobreix què s’hi amaga**", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="**1. De la festassa de Sitges decideixes anar a UK, passant primer per Edimburg i després per Londres, on et quedes a dormir a casa la Nurifly. Decideixes tornar altre cop als parcs de Londres, tot i que després fas camí cap a l’aeroport on un avió et portarà en direcció cap al País Basc, on aniràs a parar a Plentzia**", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="**2. Partint d’un Sant Albert, passes per una mani de l’11 de Setembre però veus que després necessites passar un cap de setmana amb els físics esquiant. De totes formes el curs avança i toca a vegades fer presentacions. Això sí, sempre tornem al nostre dia de Sant Albert**", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="I aquesta direcció:", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="https://drive.google.com/drive/folders/1xi2Ey5zTBBGfmAPEvTDGbl_DFuFC4Itj?usp=sharing", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Colombia:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
     return COL_PROVA
