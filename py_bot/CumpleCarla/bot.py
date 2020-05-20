@@ -356,11 +356,11 @@ def colombia(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Bienvenida a *Colombia*, mamita!", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="El nostre agent local t'ha deixat un sobre al hotel", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Conté aquest missatge:", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="**Segueix les fotos del collage en línies rectes verticals o horitzontals (no diagonals) i descobreix què s’hi amaga**", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="**1. De la festassa de Sitges decideixes anar a UK, passant primer per Edimburg i després per Londres, on et quedes a dormir a casa la Nurifly. Decideixes tornar altre cop als parcs de Londres, tot i que després fas camí cap a l’aeroport on un avió et portarà en direcció cap al País Basc, on aniràs a parar a Plentzia**", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="**2. Partint d’un Sant Albert, passes per una mani de l’11 de Setembre però veus que després necessites passar un cap de setmana amb els físics esquiant. De totes formes el curs avança i toca a vegades fer presentacions. Això sí, sempre tornem al nostre dia de Sant Albert**", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="_Segueix les fotos del collage en línies rectes verticals o horitzontals (no diagonals) i descobreix què s’hi amaga_", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="_1. De la festassa de Sitges decideixes anar a UK, passant primer per Edimburg i després per Londres, on et quedes a dormir a casa la Nurifly. Decideixes tornar altre cop als parcs de Londres, tot i que després fas camí cap a l’aeroport on un avió et portarà en direcció cap al País Basc, on aniràs a parar a Plentzia_", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="_2. Partint d’un Sant Albert, passes per una mani de l’11 de Setembre però veus que després necessites passar un cap de setmana amb els físics esquiant. De totes formes el curs avança i toca a vegades fer presentacions. Això sí, sempre tornem al nostre dia de Sant Albert_", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="I aquesta direcció:", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="https://drive.google.com/drive/folders/1xi2Ey5zTBBGfmAPEvTDGbl_DFuFC4Itj?usp=sharing", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="https://drive.google.com/drive/folders/1xi2Ey5zTBBGfmAPEvTDGbl_DFuFC4Itj?usp=sharing")
     context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Colombia:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
     return COL_PROVA
@@ -375,7 +375,7 @@ def peru(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Sembla que, degut a la situació actual, la mobilitat a dins del país està restringida i no es pot viatjar lliurement", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="La seva recomenació és viatjar d'incògnit", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="No pateixis. Fes click al següent enllaç i un dels nostres agents t'ajudarà a triar un personatge òptim per viatjar sense problemes", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")
     context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Perú:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
     return PER_PROVA
