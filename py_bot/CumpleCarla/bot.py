@@ -141,7 +141,6 @@ def check_argentina(update, context):
         logger.info("[CHECK ARGENTINA] Usuari %s ha FALLAT password ARGENTINA --> %s", update.message.from_user.first_name, update.message.text) 
 
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Argentina:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_brasil(update, context):
@@ -171,7 +170,6 @@ def check_brasil(update, context):
         logger.info("[CHECK BRASIL] Usuari %s ha FALLAT password BRASIL --> %s", update.message.from_user.first_name, update.message.text) 
 
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Brasil:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_bolivia(update, context):
@@ -201,7 +199,6 @@ def check_bolivia(update, context):
         logger.info("[CHECK BOLIVIA] Usuari %s ha FALLAT password BOLIVIA --> %s", update.message.from_user.first_name, update.message.text) 
 
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Bolivia:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_colombia(update, context):
@@ -231,7 +228,6 @@ def check_colombia(update, context):
         logger.info("[CHECK COLOMBIA] Usuari %s ha FALLAT password COLOMBIA --> %s", update.message.from_user.first_name, update.message.text) 
 
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Colombia:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_peru(update, context):
@@ -261,7 +257,6 @@ def check_peru(update, context):
         logger.info("[CHECK PERU] Usuari %s ha FALLAT password PERU --> %s", update.message.from_user.first_name, update.message.text) 
 
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Peru:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 def check_xile(update, context):
@@ -291,7 +286,6 @@ def check_xile(update, context):
         logger.info("[CHECK XILE] Usuari %s ha FALLAT password XILE --> %s", update.message.from_user.first_name, update.message.text) 
 
         context.bot.send_message(chat_id=update.effective_chat.id, text="*Incorrecte!*", parse_mode=telegram.ParseMode.MARKDOWN)
-        context.bot.send_message(chat_id=update.effective_chat.id, text="Recorda que pots fer servir /ajuda i un dels nostres agents t'atendrà de seguida", parse_mode=telegram.ParseMode.MARKDOWN)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Xile:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
 
