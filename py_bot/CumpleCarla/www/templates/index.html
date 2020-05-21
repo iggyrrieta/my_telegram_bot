@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title> Fly on the wings of love</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>LOG</h1>
+    <hr>
+
+    <script>
+    setTimeout(function(){
+       window.location.reload(1);
+    }, 1000);
+    </script>
+
+    <div id="logTable"></div>
+      <table style="margin-left: 20px;">
+        {%for entry in log%} 
+          <!-- table rows -->
+          <tr> 
+            <td style="color: slateblue; font-family: Arial; font-size: 100%">{{entry[0]}}</td> 
+            <td style="color: seagreen; font-family: Arial; font-size: 100%">{{entry[1]}}</td> 
+        {%endfor%} 
+          </tr> 
+      </table> 
+    </div>
+
+  </body>
+</html>

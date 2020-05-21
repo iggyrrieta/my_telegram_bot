@@ -9,8 +9,8 @@ bot.get_updates(fail_silently: true) do |message|
     message.reply do |reply|
       case command
       when /start/i
-        reply.text = "Hola!, tenia ganas de hablar contigo. Prueba el comando /fisica"
-      when /fisica/i
+        reply.text = "Hola!, tenia ganas de hablar contigo. Prueba el comando /test"
+      when /test/i
         reply.text = "Ja Ja Ja, #{message.from.first_name}. 🤖"
       else
         reply.text = "No entiendo que quieres decir con #{command.inspect} ..."

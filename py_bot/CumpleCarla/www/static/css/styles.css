@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+  }
+  h1 {
+    color: whitesmoke;
+    font-family: verdana;
+    font-size: 300%;
+  }
+  p {
+    color: seagreen;
+    font-family: courier;
+    font-size: 160%;
+  }
