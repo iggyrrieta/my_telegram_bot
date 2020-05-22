@@ -8,7 +8,7 @@ from telegram import ReplyKeyboardMarkup, ForceReply, ReplyKeyboardRemove
 # Logging
 #======================
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    filename='../cfg/app.log',
+                    #filename='app.log',
                     filemode='w', 
                     datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.INFO)
@@ -42,7 +42,7 @@ OK_XIL = ''
 #=================================================================
 def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Hola, "+ update.message.from_user.first_name+"!")
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Soc el teu assistent personal de l'agència de viatges virtual *FLYONTHEWINGSOFLOVE*", parse_mode=telegram.ParseMode.MARKDOWN)     
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Sóc el teu assistent personal de l'agència de viatges virtual *FLYONTHEWINGSOFLOVE*", parse_mode=telegram.ParseMode.MARKDOWN)     
     context.bot.send_message(chat_id=update.effective_chat.id, text="Porto més de 30 anys organitzant viatges virtuals arreu del món")  
     context.bot.send_message(chat_id=update.effective_chat.id, text="Segueix les meves instruccions i viatjarem allà on vulguis")  
     context.bot.send_message(chat_id=update.effective_chat.id, text="Començem?") 
@@ -81,11 +81,11 @@ def check_inici(update, context):
        (update.message.text.lower() == 'ok')):
 
        context.bot.send_message(chat_id=update.effective_chat.id, text="Genial!")  
-       context.bot.send_message(chat_id=update.effective_chat.id, text="A continuació tens el llistat de les destinacions que offerim:")
-       context.bot.send_message(chat_id=update.effective_chat.id, text="Argentina - /argentina\nBolivia - /bolivia\nBrasil - /brasil\nColombia - /colombia\nPerú - /peru\nXile - /xile")
-       context.bot.send_message(chat_id=update.effective_chat.id, text="Fes click a sobre del lloc a on vulguis anar. Per tonar a accedir a aquest llistat utilitza la paraula clau /destinacions")
+       context.bot.send_message(chat_id=update.effective_chat.id, text="A continuació tens el llistat de les destinacions que oferim:")
+       context.bot.send_message(chat_id=update.effective_chat.id, text="Argentina - /argentina\nXile - /xile\nBolivia - /bolivia\nPerú - /peru\nColombia - /colombia\nBrasil - /brasil")
+       context.bot.send_message(chat_id=update.effective_chat.id, text="Fes click a sobre del lloc a on vulguis anar. Per tornar a accedir a aquest llistat utilitza la paraula clau /destinacions")
        context.bot.send_message(chat_id=update.effective_chat.id, text="Un cop hagis començat el teu viatge, pots consultar el teu itinerari a /itinerari")
-       context.bot.send_message(chat_id=update.effective_chat.id, text="En qualsevol moment del viatje, pots utilitzat la paraula clau /ajuda per contactar amb un dels nostres agents")  
+       context.bot.send_message(chat_id=update.effective_chat.id, text="En qualsevol moment del viatge, pots utilitzat la paraula clau /ajuda per contactar amb un dels nostres agents")  
        #LOG
        logger.info("[CHECK INICI] Usuari %s ha escrit --> %s", update.message.from_user.first_name, update.message.text)  
 
@@ -130,8 +130,8 @@ def check_argentina(update, context):
         if ((OK_ARG==PASS_ARGENTINA) and (OK_BOL==PASS_BOLIVIA) and (OK_BRA==PASS_BRASIL) \
             and (OK_COL==PASS_COLOMBIA) and (OK_PER==PASS_PERU) and (OK_XIL==PASS_XILE)):
             context.bot.send_message(chat_id=update.effective_chat.id, text="Felicitats 🎉🎉🎉", parse_mode=telegram.ParseMode.MARKDOWN)
-            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge a arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
-            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="El teu viatge ha arribat a la fi", parse_mode=telegram.ParseMode.MARKDOWN) 
+            context.bot.send_message(chat_id=update.effective_chat.id, text="Esperem que hagis gaudit del teu itinerari", parse_mode=telegram.ParseMode.MARKDOWN) 
             context.bot.send_message(chat_id=update.effective_chat.id, text="Si us plau, fes click al següent enllaç per omplir una petita enquesta sobre la teva experiència", parse_mode=telegram.ParseMode.MARKDOWN)
             context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")  
         else:
@@ -305,7 +305,7 @@ def ajuda(update, context):
 def destinacions(update, context):
 
     context.bot.send_message(chat_id=update.effective_chat.id, text="A continuació tens el llistat de les destinacions que offerim:")
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Argentina - /argentina\nBolivia - /bolivia\nBrasil - /brasil\nColombia - /colombia\nPerú - /peru\nXile - /xile")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Argentina - /argentina\nXile - /xile\nBolivia - /bolivia\nPerú - /peru\nColombia - /colombia\nBrasil - /brasil")
     context.bot.send_message(chat_id=update.effective_chat.id, text="Fes click a sobre del lloc a on vulguis anar. Per tonar a accedir a aquest llistat utilitza la paraula clau /destinacions")
 
     #LOG
@@ -331,7 +331,7 @@ def bolivia(update, context):
     logger.info("[DESTINACIONS] Usuari %s esta a BOLIVIA", update.message.from_user.first_name)
 
     context.bot.send_message(chat_id=update.effective_chat.id, text="Sembla que no has demanat el visat per tal de poder viatjar a *Bolivia*", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Desde FLYONTHEWINGSOFLOVE hem aconseguit accelerat els tràmits per obtenir el teu visat online. Però has de ser tu qui contacti amb el consulat per obtenir la clau d’activació.", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Des de FLYONTHEWINGSOFLOVE hem aconseguit accelerar els tràmits per obtenir el teu visat online. Però has de ser tu qui contacti amb el consulat per obtenir la clau d’activació.", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="A continuació et passem l’enllaç al seu call center", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Bolivia:*", parse_mode=telegram.ParseMode.MARKDOWN)
@@ -339,13 +339,24 @@ def bolivia(update, context):
     return BOL_PROVA
 
 def brasil(update, context):
+
+    if ((OK_ARG!=PASS_ARGENTINA) or (OK_BOL!=PASS_BOLIVIA) \
+        or (OK_COL!=PASS_COLOMBIA) or (OK_PER!=PASS_PERU) or (OK_XIL!=PASS_XILE)): 
+       #LOG
+       logger.info("[CHECK BRASIL] Usuari %s encara NO POT ACCEDIR a BRASIL", update.message.from_user.first_name) 
+
+       context.bot.send_message(chat_id=update.effective_chat.id, text="Per tal de poder visitar Brasil, has de visitar abans la resta de països. Recorda que pots veure el teu itinerari a /itinerari i les nostres destinacions a /destinacions", parse_mode=telegram.ParseMode.MARKDOWN) 
+
+       return 0
+
     #LOG
     logger.info("[DESTINACIONS] Usuari %s esta a BRASIL", update.message.from_user.first_name)
 
     context.bot.send_message(chat_id=update.effective_chat.id, text="Bem vindo ao *Brasil*!", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Nós estávamos esperando por você, detetive", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Um crime foi cometido. Precisamos da sua ajuda para resolvê-lo", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Enviamos todas as informações para o seu apartamento", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Deixamos todas as informações aqui:", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="https://drive.google.com/drive/folders/1-h37YSVGPENHD5y6rfjF8DIGe0AvSnLy?usp=sharing")
     context.bot.send_message(chat_id=update.effective_chat.id, text="Quando você descobrir a cena do crime, o assassino e a arma do crime, envie todos os dados para o inspetor-chefe. Ele saberá o que fazer", parse_mode=telegram.ParseMode.MARKDOWN) 
     context.bot.send_message(chat_id=update.effective_chat.id, text="Muita sorte", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Brasil:*", parse_mode=telegram.ParseMode.MARKDOWN)
@@ -376,8 +387,8 @@ def peru(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Espera...", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Hem rebut una notificació per part del nostre agent local a Perú", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Sembla que, degut a la situació actual, la mobilitat a dins del país està restringida i no es pot viatjar lliurement", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="La seva recomenació és viatjar d'incògnit", parse_mode=telegram.ParseMode.MARKDOWN)
-    context.bot.send_message(chat_id=update.effective_chat.id, text="No pateixis. Fes click al següent enllaç i un dels nostres agents t'ajudarà a triar un personatge òptim per viatjar sense problemes", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="La seva recomanació és viatjar d'incògnit", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="No pateixis. Fes click al següent enllaç i els nostres agents t'ajudaran a triar un personatge òptim per viatjar sense problemes", parse_mode=telegram.ParseMode.MARKDOWN)
     context.bot.send_message(chat_id=update.effective_chat.id, text="https://meet.jit.si/FlyOnTheWingsOfLove")
     context.bot.send_message(chat_id=update.effective_chat.id, text="Introdueix *PASSWORD Perú:*", parse_mode=telegram.ParseMode.MARKDOWN)
 
@@ -400,7 +411,7 @@ def itinerari(update, context):
     #LOG
     logger.info("[ITINERARI] Usuari %s esta comprobant itinerari", update.message.from_user.first_name)
 
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f"*Itinerari*\nArgentina - {OK_ARG}\nBolivia - {OK_BOL}\nBrasil - {OK_BRA}\nColombia - {OK_COL}\nPerú - {OK_PER}\nXile - {OK_XIL}", parse_mode=telegram.ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=f"*Itinerari*\nArgentina - {OK_ARG}\nXile - {OK_XIL}\nBolivia - {OK_BOL}\nPerú - {OK_PER}\nColombia - {OK_COL}\nBrasil - {OK_BRA}", parse_mode=telegram.ParseMode.MARKDOWN)
 
 #=================================================================
 # MAIN
@@ -444,7 +455,7 @@ def main():
 
     handler_brasil = ConversationHandler(
         entry_points=[CommandHandler('brasil', brasil)],
-
+        allow_reentry=True,
         states={
             BRA_PROVA: [MessageHandler(Filters.text, check_brasil)]},
         fallbacks=[CommandHandler('exit', cancel)])

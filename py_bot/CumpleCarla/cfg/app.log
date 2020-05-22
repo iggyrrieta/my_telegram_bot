@@ -1,1 +1,7 @@
-
+2020-05-22 14:10:19 - FlyOn Carla - INFO - [START] Usuari Iñaki: ha iniciat una conversacio
+2020-05-22 14:10:37 - FlyOn Carla - INFO - [CHECK INICI] Usuari Iñaki ha escrit --> si
+2020-05-22 14:10:49 - FlyOn Carla - INFO - [DESTINACIONS] Usuari Iñaki esta a ARGENTINA
+2020-05-22 14:10:59 - FlyOn Carla - INFO - [CHECK ARGENTINA] Usuari Iñaki ha FALLAT password ARGENTINA --> 24243
+2020-05-22 14:11:03 - FlyOn Carla - INFO - [CHECK ARGENTINA] Usuari Iñaki ha FALLAT password ARGENTINA --> jairen caraculo
+2020-05-22 14:22:35 - telegram.ext.updater - INFO - Received signal 2 (SIGINT), stopping...
+2020-05-22 14:22:35 - telegram.ext.updater - WARNING - Exiting immediately!
