@@ -19,7 +19,7 @@ Python **BOT** creado para el cumple de Carla.
         >
         > ​				librerias para trabajar en local : telegram, python-telegram-bot
         >
-        > ​				librerias para trabajar en web : anteriores + flask
+        > ​				librerias para trabajar en web : anteriores + Flask + Flask-SocketIO + APScheduler
 
 
 ## Funcionamiento
