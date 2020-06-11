@@ -421,7 +421,7 @@ def main():
     # Updater & dispatcher
     #======================
     #Updater : Create the Updater and pass it your bot's token.
-    updater = Updater(token='1116840236:AAFP-BfnlE7mG969oESoSzymsMhQSMnwTz0', use_context=True)
+    updater = Updater(token='---------------', use_context=True)
 
     #Dispatcher : Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
