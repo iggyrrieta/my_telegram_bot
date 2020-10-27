@@ -15,7 +15,7 @@ Babel==2.8.0
 certifi==2020.4.5.1
 cffi==1.14.0
 click==7.1.2
-cryptography==2.9.2
+cryptography==3.2
 decorator==4.4.2
 demo-nodes-py==0.8.4
 distlib==0.3.0
