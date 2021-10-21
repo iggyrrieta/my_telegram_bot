@@ -11,7 +11,7 @@ ament-pep257==0.8.1
 ament-uncrustify==0.8.1
 ament-xmllint==0.8.1
 appdirs==1.4.4
-Babel==2.8.0
+Babel==2.9.1
 certifi==2020.4.5.1
 cffi==1.14.0
 click==7.1.2
